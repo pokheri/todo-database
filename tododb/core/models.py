@@ -37,13 +37,13 @@ class Tasks(models.Model):
     """Db model that store taks information"""
 
     user = models.ForeignKey(Creater, on_delete=models.CASCADE, related_name="tasks")
-    title = models.TextField(max_length=100, null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
+    title = models.TextField(max_length=100, blank=True, default="")
+    description = models.TextField(blank=True, default="")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.tile
+        return self.title if self.title else self.description[:30]
 
 
 class RequestedOtp(models.Model):

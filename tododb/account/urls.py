@@ -9,6 +9,7 @@ urlpatterns = [
     path("request-otp/", views.RequestResetOTPAPIView.as_view(), name="request_otp"),
     path("reset/", views.ResetPasswordAPIView.as_view(), name="reset_password"),
     path("delete/", views.DeleteMyAccountAPIView.as_view(), name="delete_my_account"),
+    path("me/", views.AmIAuthenticated.as_view()),
 ]
 
 

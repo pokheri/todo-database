@@ -224,3 +224,17 @@ class CheckAuth(APIView):
         print("we are in the get method ")
 
         return Response({"mesage": "ok"}, status=status.HTTP_200_OK)
+
+
+class AmIAuthenticated(APIView):
+
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+
+        return Response(
+            {
+                "message": "hey",
+            },
+            status=status.HTTP_200_OK,
+        )
